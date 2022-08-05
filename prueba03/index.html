@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <title>Document</title>
+</head>
+<body  onkeydown="keyEvent(event)" >
+    
+    <div id="mousePositions" onkeydown="keyEvent(event)" onmousemove="posicion(event);">Raton
+
+        <div >
+
+        </div>
+    </div>
+   
+</body>
+
+<script>
+    function posicion(event) {
+        var x = event.clientX;
+        var y = event.clientY;
+        var mousePositions = document.getElementById('mousePositions');
+        mousePositions.innerHTML = 'pages: ' + x + ', ' + y;
+    }
+
+    function ocultaMapeo() {
+    var x = document.getElementById("mousePositions");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+
+}
+function keyEvent(event) {
+  var key = event.keyCode || event.which;
+  var keychar = String.fromCharCode(key);
+  var mousePositions = document.getElementById('mousePositions');
+        mousePositions.innerHTML = 'Character: ' + key +'';
+      
+     
+}
+
+
+
+
+</script>
+</html>
+
