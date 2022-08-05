@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title>Web Component</title>
+
+  <style>
+    body {
+      background-color: cornflowerblue;
+    }
+
+    table thead {
+      background: #302b63;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container mt-4 shadow-lg p-3 mb-5 bg-body rounded">
+
+    <table class="table table-bordered table-striped" id="datos">
+      <thead>
+        <td colspan="4" id="td1"><span id="ispan">Filter</span>
+          <input type="text" id="searchTerm">
+       
+          <template>
+            <style>
+              button#btn1 {
+            
+                width: 60px;
+                height: 40px;
+                font-size: 15px;
+                border-color: rgb(31, 241, 241);
+                
+
+              }
+            </style>
+               <button is="boton-buscar" id="btn1">Search</button>
+            <button is="boton-limpiar" id="btn1">Clear</button>
+          </template>
+          <head-table></head-table>
+        </td>
+        <tr>
+          <th>Id</th>
+          <th>Nombre</th>
+          <th>Salario</th>
+          <th>Edad</th>
+        </tr>
+      </thead>
+      <tbody id="data">
+
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    let url = 'https://dummy.restapiexample.com/api/v1/employees';
+    fetch(url)
+      .then(response => response.json())
+      .then(data => mostrarData(data.data))
+      .catch(error => console.log(error))
+
+    const mostrarData = (data) => {
+      console.log(data)
+      let body = ""
+      for (var i = 0; i < data.length; i++) {
+        body += `<tr><td>${data[i].id}</td><td>${data[i].employee_name}</td><td>${data[i].employee_salary}</td><td>${data[i].employee_age}</td></tr>`
+      }
+      document.getElementById('data').innerHTML = body
+      
+    }
+
+    function busqueda() {
+
+ 
+    }
+
+    function limpiar() {
+      alert('hola')
+      document.getElementById("searchTerm").value = "";
+      location.reload();
+    }
+
+
+    class BotonBuscar extends HTMLButtonElement {
+      constructor() {
+        super();
+        this.addEventListener('click', (e) => {
+          const tableReg = document.getElementById("data");
+      const searchText = document.getElementById("searchTerm").value.toLowerCase();
+      let total = 0;
+          for (let i = 1; i < tableReg.rows.length; i++) {
+
+        if (tableReg.rows[i].classList.contains("noSearch")) {
+          continue;
+        }
+        let found = false;
+
+        const cellsOfRow = tableReg.rows[i].getElementsByTagName("td");
+
+
+        for (let j = 0; j < cellsOfRow.length && !found; j++) {
+          const compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+
+          if (searchText.length == 0 || compareWith.indexOf(searchText) > -1) {
+            found = true;
+
+            total++;
+          }
+        }
+        if (found) {
+          tableReg.rows[i].style.display = "";
+        } else {
+          tableReg.rows[i].style.display = "none";
+        }
+      }
+      const lastTR = tableReg.rows[tableReg.rows.length - 1];
+
+      const td = lastTR.querySelector("td");
+
+      if (searchText == "") {
+        lastTR.classList.add("hide");
+      } else if (total) {
+
+        td.innerHTML =
+          "Se ha encontrado " + total + " coincidencia" + (total > 1 ? "s" : "");
+      } else {
+        lastTR.classList.add("red");
+
+        td.innerHTML = "No se han encontrado coincidencias";
+      }
+        })
+      }
+      static get ceName() {
+        return 'boton-buscar'
+      }
+      get is() {
+        return this.getAttribute('is')
+      }
+      set is(value) {
+        this.setAttribute('is', value || this.ceName)
+      }
+    }
+
+    customElements.define('boton-buscar', BotonBuscar, { extends: 'button' })
+
+    class BotonLimpiar extends HTMLButtonElement {
+      constructor() {
+        super();
+        this.addEventListener('click', (e) => {
+          document.getElementById("searchTerm").value = "";
+          location.reload();
+
+        })
+      }
+      static get ceName() {
+        return 'boton-limpiar'
+      }
+      get is() {
+        return this.getAttribute('is')
+      }
+      set is(value) {
+        this.setAttribute('is', value || this.ceName)
+      }
+    }
+
+    customElements.define('boton-limpiar', BotonLimpiar, { extends: 'button' })
+
+    class HeadTable extends HTMLElement {
+      constructor() {
+        const tpl = document.querySelector('template')
+
+        const tplInst = tpl.content.cloneNode(true);
+
+        super();
+
+        this.attachShadow({ mode: 'open' })
+        this.shadowRoot.appendChild(tplInst)
+      }
+    }
+
+    customElements.define('head-table', HeadTable)
+  </script>
+</body>
+
+</html>

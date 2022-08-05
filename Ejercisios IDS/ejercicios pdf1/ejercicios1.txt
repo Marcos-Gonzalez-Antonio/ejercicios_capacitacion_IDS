@@ -1,0 +1,396 @@
+1- Que regresa la siguiente funcion: 
+    function f(x,y=2, z=7){
+        return x+y+z;
+    }
+    console.log(f(5, undefined))
+      resultado:    14
+
+
+2- Resultado en la variable result:
+   let animal = 'kitty';
+   var result = (animal ==='kitty' ? 'cute' : 'still nice');
+   console.log(result)
+
+   resultado:cute
+
+3- genera una funcion e imprime en consola el resultado:
+
+   function comparaAnimal(animal, result){
+        var animal = 'kitty';
+        var result = '';
+        if (animal === 'kitty') {
+            result = 'cute;'
+        } else {
+            result = 'still nice'
+        }
+        console.log(result)
+    }
+
+    comparaAnimal();
+
+4-  genera una funcion e imprime en consola el resultado:
+
+  function comparacion() {
+        var a = 0;
+        var str = 'not a ';
+        var b = '';
+        b = a === 0 ? (a = 1, str += 'test') : (a = 2);
+    
+    console.log(b)
+    }
+
+    comparacion()
+
+5- genera una funcion e imprime en consola el resultado:
+
+    function comparacion1() {
+        var a = 1;
+       a === 1 ?  alert('Hey, it is 1') : 0;
+    
+    console.log(a)
+    }
+    comparacion1()
+6- genera una funcion e imprime en consola el resultado:
+
+   function comparacion2(){
+        var a = 1
+        a === 1 ? alert('hey, it is 1!') : alert('Weird, what could it be?')
+   if (a === 1) alert('hey, it is 1!'); else ('Weird, what could it be?')
+
+   console.log(a)
+    }
+    comparacion2()
+
+7- genera una funcion e imprime en consola el resultado: (pendiente)
+    function comparacionAnimal(){
+        var animal = 'kitty';
+        for (var i = 0; i < 5; ++i){
+            (animal === 'kitty') ? break : console.log(i);
+        }
+
+    }
+    comparacionAnimal()
+ 
+8- genera una funcion e imprime en consola el resultado
+
+    function switch1(){
+        var value = 1
+        switch (value) {
+                    case 1:
+                        console.log('I will always run');
+                        break;
+                    case 2:
+                        console.log('I will always run');
+                        break;
+                    default:
+                }
+
+            }
+            switch1()
+
+9- genera una funcion e imprime en consola el resultado
+    function switch2(){
+        var animal = 'Lion'
+        switch (animal) {
+                    case 'Dog':
+                        console.log('I will not run since animal !== "Dog');
+                        break;
+                    case 'Cat':
+                        console.log('I will not run since animal !== "Cat');
+                        break;
+                    default:
+                        console.log('I will  run since animal does not match any other case');
+                }
+
+            }
+            switch2()
+ 
+10- genera una funcion e imprime en consola el resultado
+
+    function switch3(){
+    function john(){
+        return 'John';
+    }
+    function jacob(){
+        return 'Jacob';
+    }
+        var name  = 'John'
+        switch (name) {
+                    case 'John':
+                        console.log('I will run if name === "John"');
+                        break;
+                    case 'ja' + 'ne':
+                    console.log('I will run if name === "Jane"');
+                        break;
+                    case john() + ' ' + jacob() + 'Jinglehemier Schmidt':
+                    console.log('His name is equal to name too');
+                        break;
+                 
+                }
+
+            }
+            switch3()
+
+11- genera una funcion e imprime en consola el resultado
+
+    function switch4(){
+  
+        var x  = 'c'
+        switch (x) {
+            case 'a':
+            case 'b':
+            case 'c':
+                console.log('Either a, b,  or was c was selected.');
+                 break;
+                    case 'd':
+                        console.log('Only d was selected.');
+                        break;
+                    default:
+                        console.log('No case was selected');
+                 
+                }
+
+            }
+            switch4()
+
+12 - Cual es el resultado de cada sentencia :
+
+  var x = 5 + 7;  : 12
+  var x = 5 + "7"; : 57, pero el siete solo lo toma como cadena de texto y lo agrega despues del numero.
+  var x = "5" + 7; : 57, el mismo caso de la sentencia anterior.
+  var x = 5 - 7; : -2
+  var x = 5 - "7"; :-2
+  var x = "5" - 7; :-2
+  var x = 5 - "x"; : no es un numero NaN
+
+13 - Cual es el resultado de cada sentencia :
+
+  var a = 'hello' || '';        : hello
+  var b = '' || [];             : []
+  var c = '' || undefined;      : undefined
+  var d = 1 || 5;               : 1
+  var e = 0 || {};              : {}
+  var f = 0  || '' || 5;        : 5
+  var g = '' || 'yay' || 'boo';  : yay
+
+14 - Cual es el resultado de cada sentencia :
+
+  var a = 'hello' && '';        : string vacio
+  var b = '' && [];             : string vacio
+  var c = undefined && 0;      : undefined
+  var d = 1 && 5;               : 5
+  var e = 0 && {};              : 0
+  var f = 'hi' && [] && 'done';        : done
+  var g = 'bye' && undefined && 'adios';  : undefined
+
+15 - Teniendo la funcion cual es el resultado de cada sentencia:
+
+   console.log( foo('burger'));  : burger
+   console.log( foo(100));       : 100
+   console.log( foo([]));        : []
+   console.log( foo(0));         : default
+   console.log( foo( undefined));  : default
+
+16 - Cual es el resultado de cada sentencia :
+
+      var isLegal = age >= 18;  : la respuesta es un valor booleano.
+      var tall = height >= 5.11;  : la respuesta es un valor booleano.
+      var suitable = isLegal && tall; : la respuesta es un valor booleano.
+      var isRoyalty = status === 'royalty';  : la respuesta es un valor booleano.
+      var specialCase = isRoyalty && hasInvitation; : la respuesta es un valor booleano.
+      var canEnterOurBar = suitable || specialCase;  : la respuesta es un valor booleano.
+
+17- genera una funcion y escribe en consola el resultado
+ function contador(){
+    for (var i = 0; 1< 3; i++){
+        if (i === 1){
+            continue;
+        }
+        console.log(i);
+    }
+  }
+
+  contador();
+
+
+18- genera una funcion y escribe en consola el resultado
+
+  function contador2(){
+ var i = 0;
+ while (i < 3){
+  if(i === 1){
+      i= 2;
+    continue;
+  }
+  console.log(i);
+  i++;
+ }
+  }
+
+  contador2();
+
+19 - genera una funcion y escribe en consola el resultado
+
+    function contador3(){
+  for(var i = 0;i<5; i++){
+    nextLoop2Iteracion:
+    for(var j = 0; j < 5; j++){
+      if(i==j) break nextLoop2Iteracion;
+      console.log(i,j);
+    }
+  }
+  }
+
+  contador3();
+
+20 -  genera una funcion y escribe en consola el resultado
+ function contador4(a, b){
+function foo(){
+  var a = 'hello'
+
+function bar(){
+  var b = 'world';
+  console.log(a);
+  console.log(b);
+}
+console.log(a);
+  console.log(b);
+}
+
+console.log(a);
+  console.log(b);
+}
+
+
+  contador4();
+
+
+21 - genera una funcion y escribe en consola el resultado
+function contador5 (){
+  function foo(){
+
+    function bar(){
+      const a = false;
+      console.log(a);
+    }
+    const a = false;
+    a=false;
+    console.log(a);
+  }
+}
+
+contador5();
+
+22 -genera una funcion y escribe en consola el resultado
+   function suma(){
+  var namedSum = function (a,b){
+    return a + b ;
+  }
+  var anonSum = function (a,b){
+    return a +b ;
+  }
+  
+  console.log(namedSum(1,3));
+    console.log(anonSum(1,3));        
+}
+suma();
+
+23 - genera una funcion y escribe en consola el resultado
+
+  function arreglos(){
+        var a = [1, 2,3,8,9,10]
+        a.slice(0,3).concat([4,5,6,7], a.slice(3,6));
+
+        console.log(a);
+
+        var a = [1, 2,3,8,9,10]
+        a.splice(3,0, ...[4, 5, 6, 7]);
+        console.log(a);
+ }
+  arreglos();
+24- genera una funcion y escribe en consola el resultado
+    function arreglos(){
+        var a = ['a', 'b', 'c']
+
+        a.join('->');
+        a.join('.');
+        'a.b.c'.split('.');
+        '5.4.3.2.1'.split('.');
+
+        console.log(a);
+
+    }
+    
+ arreglos();
+
+25 - genera una funcion y escribe en consola el resultado
+  function arreglos(){
+    var array = [5, 10, 15, 20, 25];
+
+    Array.isArray(array)
+    array.includes(10);
+    array.includes(10, 2)
+    array.indexOf(25);
+    array.lastIndexOf(10, 0);
+    console.log(array);
+  }
+  arreglos();
+
+  26 - genera una funcion y escribe en consola el resultado
+
+    function arreglos(){
+    var array = ['a','b','c','d','e','f'];
+    array.copyWithin(5, 0, 1);
+    array.copyWithin(3, 0, 3);
+    array.fill('z', 0, 5);
+
+    console.log(array);
+
+    var array = ['Alberto','Ana','Mauricio','Bernardo','Zoe'];
+       array.sort();
+       array.reverse();
+       console.log(array);
+
+}
+arreglos();
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+switch base
+
+     switch (expr) {
+                    case 'Naranjas':
+                        console.log('El kilogramo de naranjas cuesta $0.59.');
+                        break;
+                    case 'Manzanas':
+                        console.log('El kilogramo de manzanas cuesta $0.32.');
+                        break;
+                    case 'Platanos':
+                        console.log('El kilogramo de platanos cuesta $0.48.');
+                        break;
+                    case 'Cerezas':
+                        console.log('El kilogramo de cerezas cuesta $3.00.');
+                        break;
+                    case 'Mangos':
+                    case 'Papayas':
+                        console.log('El kilogramo de mangos y papayas cuesta $2.79.');
+                        break;
+                    default:
+                        console.log('Lo lamentamos, por el momento no disponemos de ' + expr + '.');
+                }
+
+            }
+            comparacionAnimal('Naranjast')

@@ -1,0 +1,17 @@
+#td1{
+    background-color: aliceblue;
+    color: rgb(15, 14, 14);
+}
+
+#ispan{
+margin-right: 5px;
+
+}
+#search{
+    margin-left: 5px;
+    border-color: aliceblue;
+}
+#clear{
+    margin-left: 5px;
+    border-color: aliceblue;
+}

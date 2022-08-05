@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tabla de datos</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <h2>Tabla de personas registradas</h2>
+    <table id="tpersonas">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        </tbody>
+      </table>
+</body>
+<script>
+    var personArr = [
+        {
+            "personId" : 123,
+            "name" : "Jhon",
+            "city" :  "Sydney",
+            "phoneNo" : "1234567890"
+        },
+        {
+            "personId" : 124,
+            "name" : "Amelia",
+            "city" :  "Sydney",
+            "phoneNo" : "1234567890"
+        },
+        {
+            "personId" : 125,
+            "name" : "Emily",
+            "city" :  "Perth",
+            "phoneNo" : "1234567890"
+        },
+        {
+            "personId" : 126,
+            "name" : "Abraham",
+            "city" :  "Perth",
+            "phoneNo" : "1234567890"
+        }
+
+    ]
+ 
+   let crearTabla = function(lista){
+   let Stabla = "  <tr><th>Id</th><th>Nombre</th><th>Ciudad</th><th>Telefono</th></tr>"
+      for(let persona of lista){
+          let fila = "<tr> <td>"
+            fila += persona.personId;
+            fila += "</td>"
+
+            fila += "<td>"
+            fila += persona.name;
+            fila += "</td>"
+
+            fila += "<td>"
+            fila += persona.city;
+            fila += "</td>"
+
+            fila += "<td>"
+            fila += persona.phoneNo;
+            fila += "</td>"
+
+            fila += "</tr>"
+
+            Stabla += fila;
+
+
+
+      }
+      return Stabla;
+   }
+   document.getElementById("tpersonas").innerHTML = crearTabla(personArr);
+   
+</script>
+</html>
