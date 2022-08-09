@@ -1,0 +1,139 @@
+1 - Dado el siguiente objeto y arreglo,
+
+    var anObject={
+        foo:'bar',
+        length:'Interesting',
+        '0':'zero',
+        '1': 'one!'
+    };
+    var anArray= ['zero.', 'one'];
+
+
+
+ cual es el resultado del codigo y porque?
+
+   console.log(anArray[0], anObject[0]);  : zero. zero
+   console.log(anArray[1], anObject[1]);  : one  one!
+   console.log(anArray,length, anObject.length);  : ['zero.', 'one'] 0 'Interesting'
+   console.log(anArray.foo, anObject.foo);       :  undefined 'bar'
+
+
+   console.log(typeof anArray == 'object', typeof anObject == 'object');  : true true
+   console.log(anArray instanceof Object, anObject instanceof Object); : true true
+   console.log(anArray instanceof Array, anObject instanceof Array)  :   true false
+   console.log(Array.isArray(anArray), Array.isArray(anObject));   : true false
+
+2 - Que método del objeto ‘Object’ puedo usar para que me dé el siguiente 
+      resultado.
+
+         var obj={
+       a: 'hello',
+       b: 'this.is',
+       c: 'javascript'
+    };
+
+    var array = Object.values(obj)
+     console.log(array);
+
+3 -  Crear una función para imprimir en consola la siguiente seria de números:
+
+    let x;
+        x = 0;
+        while (x <= 100) {
+       console.log(x);
+            x = x + 2;
+        }
+4. Dado el siguiente código:
+
+ let zero = 0;
+    function multiply(x){return x * 2;}
+    function add(a=1 + zero, b=a, c = b +a, d = multiply(c)){
+        console.log((a + b + c), d);
+    }
+
+     add(1);  :  4  4
+     add(3);  :  12  12
+     add(2, 7);  :  18  18
+     add(1, 2, 5);  :  8  10
+     add(1, 2, 5, 10);  :  8  10
+
+5 - Dado el siguiente código: 
+
+class MyClass{
+    constructor(){
+        this.names_ = [];
+    }
+    set name(value){
+        this.names_.push(value);
+    }
+    get name(){
+        return this.names_[this.names_.length-1]
+    }
+}
+     const myClassInstance = new MyClass();
+     myClassInstance.name = 'joe';
+     myClassInstance.name = 'Bob';
+     
+     console.log(myClassInstance.name);   :  Bob
+     console.log(myClassInstance.names_);  : ['joe', 'Bob']
+
+6 -  Dado el siguiente código: 
+    
+     const classInstance = new class {
+    get prop(){
+        return 5;
+    }
+ }
+   classInstance.prop = 10;
+   console.log(classInstance.prop); 
+
+
+7 - Dado el siguiente código: 
+    class Queue{
+    constructor(){
+        const list = [];
+        this.enqueue = function (type){
+
+            list.push(type);
+            return type;
+        }
+        this.dequeue = function (){
+            return list.shift();
+        }
+    }
+  }
+
+  Cual es el resultado de ejecuta las siguientes sentencias y porque? :
+
+    
+    console.log(q.dequeue());  : 9
+    console.log(q.dequeue());  : 8
+    console.log(q.dequeue());  : 7
+    console.log(q);  : Queue {enqueue: ƒ, dequeue: ƒ}
+    console.log(Object.keys(q));  :['enqueue', 'dequeue']
+
+
+8 -  Dada la siguiente clase: 
+
+
+Define los métodos correspondientes para ejecutar el siguiente código:
+
+  class Person {
+    constructor(firstname, lastname){
+        this.firstname='Foo';
+        this.lastname='Bar'
+    } 
+    }
+    let person = new Person('John', 'Doe');
+    console.log(person.firstname, person.lastname);
+  
+  
+
+
+
+
+
+
+
+
+6- 

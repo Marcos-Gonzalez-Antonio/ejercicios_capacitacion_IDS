@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<div id="post-102" onclick="alerta()">
+    <p>I like Confirm modals.</p>
+    <a data-delepost="post-102">Delete post</a>
+</div>
+<div id="post-103" onclick="alerta()">
+    <p>That's way too cool!</p>
+    <a data-delepost="post-103">Delete post</a>
+</div>
+</body>
+<script>
+   
+      
+
+  
+
+function alerta()
+    {
+    var mensaje;
+    var opcion = confirm("Desea eliminar los elementos de la pagina??");
+    if (opcion == true) {
+        var deleteBtn = document.querySelectorAll("[data-delepost]");
+        var collection = document.getElementsByTagName("a");
+        for (var i = 0, len = collection.length; i != len; ++i) {
+        collection[0].parentNode.removeChild(collection[0]);
+}
+	} else {
+	    mensaje = "Operacion cancelada";
+	}
+	
+}
+</script>
+
+</html>
+
